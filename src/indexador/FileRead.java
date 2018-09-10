@@ -14,19 +14,21 @@ import org.apache.commons.io.FileUtils;
  *
  * @author Usuario
  */
-public class FileReader {
+public class FileRead {
     public static void iterate(String direction) throws Exception {
     File root = new File(direction);
     
-    String[] extensions = { "xml", "java", "dat" };
+    String[] extensions = { "xml", "java", "txt" };
     boolean recursive = true;
 
     Collection files = FileUtils.listFiles(root, extensions, recursive);
 
     for (Iterator iterator = files.iterator(); iterator.hasNext();) {
       File file = (File) iterator.next();
-      // aqui va el factory
-      System.out.println("File = " + file.getAbsolutePath());
+      BaseFileType vicky = new TXT(file);
+      vicky.convertFile();
+      vicky.leer();
+      //System.out.println("File = " + file.getAbsolutePath());
     }
   }
 }

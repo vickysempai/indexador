@@ -6,7 +6,7 @@
 package indexador;
 
 import java.util.List;
-
+import indexador.BaseFileType;
 /**
  *
  * @author Usuario
@@ -17,8 +17,8 @@ public class File {
     
     public static void addList(File file){
     //factory
-    //BaseFileType actual= FileFactory(File file)
-    documents.add(actual);
+    //BaseFileType actual= FileFactory(File file);
+    //documents.add(actual);
     //
     }
 }
