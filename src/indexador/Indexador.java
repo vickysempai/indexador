@@ -15,7 +15,9 @@ public class Indexador {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception{
-        FileRead.iterate("C:\\Users\\Usuario\\Documents\\cita");
+        FileRead f = new FileRead();
+        f.iterate("C:\\Users\\Usuario\\Documents\\cita");
+        //f.mostrar();
         
     }
     

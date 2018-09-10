@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 public class TXT extends BaseFileType{
     
     public TXT(File file){
+    System.out.println (file.getAbsolutePath());
     this.file= file;
     this.words = new ArrayList<String>();
     }
@@ -39,8 +40,8 @@ public class TXT extends BaseFileType{
     }
 
     @Override
-    void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setName(String name) {
+        this.name = name;
     }
     
     void leer(){for(String str : words)

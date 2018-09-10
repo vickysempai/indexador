@@ -11,14 +11,11 @@ import indexador.BaseFileType;
  *
  * @author Usuario
  */
-public class File {
-    String fileName;
-    List<List<String>> documents;
+public class FileInstance {
+    List<BaseFileType> documents;
     
-    public static void addList(File file){
-    //factory
-    //BaseFileType actual= FileFactory(File file);
-    //documents.add(actual);
+    public void addList(BaseFileType document){
+    documents.add(document);
     //
     }
 }
