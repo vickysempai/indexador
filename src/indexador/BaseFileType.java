@@ -25,6 +25,6 @@ public abstract class BaseFileType {
     abstract void setFloat(Float vector);
     abstract String getName();
     abstract void setName(String name);
-    abstract void convertFile()throws FileNotFoundException;
+    abstract void parserFile()throws FileNotFoundException;
     abstract void leer();
 }

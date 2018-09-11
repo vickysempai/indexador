@@ -7,13 +7,8 @@ package indexador;
 
 import java.io.File;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import org.apache.commons.io.FileUtils;
-import indexador.TXT;
-import indexador.FileInstance;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +41,11 @@ public class FileRead {
     FileRead() {
         this.documents = new ArrayList<BaseFileType>();
     }
-    void convert(){
+    void parser(){
     documents.forEach(s -> {
         try {
-            s.convertFile();
+            s.parserFile();
+            s.leer();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FileRead.class.getName()).log(Level.SEVERE, null, ex);
         }

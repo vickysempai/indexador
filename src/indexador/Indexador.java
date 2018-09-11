@@ -17,7 +17,7 @@ public class Indexador {
     public static void main(String[] args) throws Exception{
         FileRead f = new FileRead();
         f.iterate("C:\\Users\\Usuario\\Documents\\cita");
-        //f.mostrar();
+        f.parser();
         
     }
     

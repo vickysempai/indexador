@@ -51,7 +51,7 @@ public class TXT extends BaseFileType{
     
 }
     @Override
-    public void convertFile() throws FileNotFoundException {
+    public void parserFile() throws FileNotFoundException {
         String cadena;
         File arch = this.file;
         BufferedReader bf = new BufferedReader(new FileReader(arch.getAbsolutePath()));
