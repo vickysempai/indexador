@@ -12,15 +12,20 @@ import indexador.FileInstance;
 public class Indexador {
 
     /**
-     * @param args the command line arguments
+     * @throws java.lang.Exception
      */
-    public static void main(String[] args) throws Exception{
+    
+    public static void Indexar() throws Exception{
+        
+        //aqui se hace la llamadas para hacer la busqueda
+        //se crea una instancia de file type(por parametro la direccion)
+        //se aplica el algoritmotf-idf aqui???
+        //
         FileInstance f = new FileInstance();
         f.load("C:\\Users\\Usuario\\Documents\\cita");
-        /*FileRead f = new FileRead();
-        f.iterate("C:\\Users\\Usuario\\Documents\\cita");
-        f.parser();*/
-        
+        /*f.tf-idf();
+        f.cosine();
+        f.*/
     }
     
 }

@@ -11,7 +11,6 @@ package indexador;
  */
 public class Searcher {
     public static void Search(String Direction){
-        
-    
+    System.out.print("i am what i am");
     }
 }

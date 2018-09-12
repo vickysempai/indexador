@@ -21,8 +21,9 @@ class FileInstance {
     
     }
 
-    private Long getTime(String direction) {
+    Long getTime(String direction) {
         File file = new File(direction);
 	return file.lastModified();
     }
+    
 }

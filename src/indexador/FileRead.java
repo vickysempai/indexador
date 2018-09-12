@@ -9,11 +9,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Iterator;
 import org.apache.commons.io.FileUtils;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.io.FilenameUtils;
 
 /**
