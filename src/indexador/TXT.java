@@ -66,9 +66,4 @@ public class TXT extends BaseFileType{
         return this.name;
     }
     
-    @Override
-    Long getTime(){
-    return this.time;
-    }
-    
 }
