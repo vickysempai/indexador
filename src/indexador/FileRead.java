@@ -21,7 +21,6 @@ import org.apache.commons.io.FilenameUtils;
  * @author Usuario
  */
 public class FileRead {
-    List<BaseFileType> documents;
     /*private static final Map<String, Runnable> myMap = createMap();
     private static Map<String, Runnable> createMap()
     {
@@ -37,21 +36,12 @@ public class FileRead {
             String key = it.next();
             System.out.println("Clave: " + key + " -> Valor: " + myMap.get(key));
     */
-
-    FileRead() {
-        this.documents = new ArrayList<BaseFileType>();
+    public static List<BaseFileType> getFiles(String direction,List documents) throws Exception{
+    iterate(direction,documents);
+    return documents;
     }
-    void parser(){
-    documents.forEach(s -> {
-        try {
-            s.parserFile();
-            s.leer();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FileRead.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    });
-    }
-    void iterate(String direction) throws Exception {
+    
+    public static void iterate(String direction,List documents) throws Exception {
 
         
     File root = new File(direction);

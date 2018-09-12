@@ -20,11 +20,11 @@ public abstract class BaseFileType {
     String url;
     List<String> words;
     File file;
+    Long time;
     
     abstract Float getFloat();
     abstract void setFloat(Float vector);
     abstract String getName();
-    abstract void setName(String name);
-    abstract void parserFile()throws FileNotFoundException;
-    abstract void leer();
+    abstract Long getTime();
+    
 }

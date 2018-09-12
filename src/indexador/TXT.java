@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,44 +19,20 @@ import java.util.logging.Logger;
 
 public class TXT extends BaseFileType{
     
-    public TXT(File file){
-    System.out.println (file.getAbsolutePath());
+    public TXT(File file) throws FileNotFoundException{
     this.file= file;
-    this.words = new ArrayList<String>();
+    this.name =file.getName();
+    this.url=file.getAbsolutePath();
+    this.words = getWords();
     }
     
-    @Override
-    Float getFloat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void setFloat(Float vector) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    void leer(){for(String str : words)
-{
-    System.out.println(str);
-}
-    
-}
-    @Override
-    public void parserFile() throws FileNotFoundException {
-        String cadena;
-        File arch = this.file;
-        BufferedReader bf = new BufferedReader(new FileReader(arch.getAbsolutePath()));
-        try {
+    private List<String> getWords() throws FileNotFoundException{
+    List<String> words = new ArrayList<String>();
+    String cadena;
+    File arch = this.file;
+    BufferedReader bf = new BufferedReader(new FileReader(arch.getAbsolutePath()));
+        
+    try {
             while((cadena = bf.readLine())!=null) {
                 StringTokenizer st = new StringTokenizer (cadena);
                 
@@ -63,12 +40,35 @@ public class TXT extends BaseFileType{
                 while (st.hasMoreTokens())
                 {
                     String s2 = st.nextToken();
-                    this.words.add(s2);
+                    words.add(s2);
                     System.out.println ("    Palabra "  + " es: " + s2);
                 }
             }   } 
         catch (IOException ex) {
             Logger.getLogger(TXT.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+    return words;
+    }
+    
+    
+    @Override
+    Float getFloat() {
+        return this.vector;
+    }
+
+    @Override
+    void setFloat(Float vector) {
+        this.vector=vector;
+    }
+
+    @Override
+    String getName() {
+        return this.name;
+    }
+    
+    @Override
+    Long getTime(){
+    return this.time;
+    }
+    
 }

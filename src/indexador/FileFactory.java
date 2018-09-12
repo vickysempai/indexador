@@ -7,6 +7,7 @@ package indexador;
 
 import java.io.File;
 import indexador.TXT;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -17,7 +18,7 @@ public class FileFactory {
     /*public BaseFileType getInstance(){
         return this.dicc.ge
     }*/
-    public static BaseFileType getFile(File file,String extension){
+    public static BaseFileType getFile(File file,String extension) throws FileNotFoundException{
         System.out.println(extension);
         if("txt".equals(extension)){
             return new TXT(file);

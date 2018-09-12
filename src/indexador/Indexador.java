@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package indexador;
-import indexador.TXT;
+import indexador.FileInstance;
 /**
  *
  * @author Usuario
@@ -15,9 +15,11 @@ public class Indexador {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception{
-        FileRead f = new FileRead();
+        FileInstance f = new FileInstance();
+        f.load("C:\\Users\\Usuario\\Documents\\cita");
+        /*FileRead f = new FileRead();
         f.iterate("C:\\Users\\Usuario\\Documents\\cita");
-        f.parser();
+        f.parser();*/
         
     }
     
