@@ -19,14 +19,16 @@ public class Indexador {
         
         //aqui se hace la llamadas para hacer la busqueda
         //se crea una instancia de file type(por parametro la direccion)
-        //
+        
+        
+        //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
         /*f.tf-idf();
         f.cosine();
         f.*/
     }
-    /*public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         Indexar("C:\\Users\\Usuario\\Documents\\cita");
-    }*/
+    }
 }

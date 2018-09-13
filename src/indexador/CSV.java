@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSVReader extends BaseFileType{
+public class CSV extends BaseFileType{
 
-    public CSVReader(File file) throws FileNotFoundException{
+    public CSV(File file) throws FileNotFoundException{
     this.name =file.getName();
     this.url=file.getAbsolutePath();
     this.words = parserWords(file);

@@ -6,12 +6,9 @@
 package indexador;
 
 import java.util.List;
-
-/**
- *
- * @author Usuario
- */
+        
 public class TfIdfIndexador implements IIndexar{
+    
     public double tf(List<String> doc, String term) {
 
         double result = 0;

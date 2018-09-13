@@ -23,6 +23,9 @@ public class FileFactory {
         if("txt".equals(extension)){
             return new TXT(file);
         }
+        if("csv".equals(extension)){
+            return new CSV(file);
+        }
         return null;
     }
 }
