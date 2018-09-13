@@ -19,9 +19,10 @@ public abstract class BaseFileType {
     Float vector;
     String url;
     List<String> words;
-    File file;
     
     abstract Float getFloat();
     abstract void setFloat(Float vector);
     abstract String getName();
+    abstract List<String> parserWords(File file)throws FileNotFoundException;
+    abstract List<String> getwords();
 }

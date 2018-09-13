@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class TfIdfIndexador {
+public class TfIdfIndexador implements IIndexar{
     public double tf(List<String> doc, String term) {
 
         double result = 0;
@@ -51,8 +51,9 @@ public class TfIdfIndexador {
         return Math.log(docs.size() / n);
 
     }
-    public double Indexar(List<String> doc, List<List<String>> docs, String term) {
-
+    @Override
+    public double IIndexar(List<String> doc, List<List<String>> docs, String term) {
         return tf(doc, term) * idf(docs, term);
     }
+
 }

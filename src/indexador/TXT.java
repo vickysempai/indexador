@@ -20,17 +20,16 @@ import java.util.logging.Logger;
 public class TXT extends BaseFileType{
     
     public TXT(File file) throws FileNotFoundException{
-    this.file= file;
     this.name =file.getName();
     this.url=file.getAbsolutePath();
-    this.words = getWords();
+    this.words = parserWords(file);
     }
     
-    private List<String> getWords() throws FileNotFoundException{
+    @Override
+    List<String> parserWords(File file) throws FileNotFoundException{
     List<String> words = new ArrayList<String>();
     String cadena;
-    File arch = this.file;
-    BufferedReader bf = new BufferedReader(new FileReader(arch.getAbsolutePath()));
+    BufferedReader bf = new BufferedReader(new FileReader(file.getAbsolutePath()));
         
     try {
             while((cadena = bf.readLine())!=null) {
@@ -64,6 +63,11 @@ public class TXT extends BaseFileType{
     @Override
     String getName() {
         return this.name;
+    }
+
+    @Override
+    List<String> getwords() {
+        return this.words;
     }
     
 }
