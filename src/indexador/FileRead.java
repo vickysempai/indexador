@@ -38,7 +38,7 @@ public class FileRead {
     }
     
     public static void iterate(String direction,List documents) throws Exception {
-System.out.print(direction);
+    System.out.print(direction);
         
     File root = new File(direction);
     

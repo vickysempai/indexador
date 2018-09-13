@@ -66,7 +66,7 @@ public class TXT extends BaseFileType{
     }
 
     @Override
-    List<String> getwords() {
+    public List<String> getwords() {
         return this.words;
     }
     

@@ -9,12 +9,9 @@ package indexador;
  *
  * @author Usuario
  */
-public class CosineSimilarity implements IDistance{
-
-    @Override
-    public double IDistance(double[] docVector1, double[] docVector2) 
-
-  {
+public class CosineSimilarity{
+    
+    public static double getDistance(double[] docVector1, double[] docVector2) {
 
       double dotProduct = 0.0;
 

@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package indexador;
-import indexador.FileInstance;
 /**
  *
  * @author Usuario
@@ -23,12 +22,14 @@ public class Indexador {
         
         //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
+        f = FileInstance.getFileInstance("C:\\Users\\Usuario\\Documents");
+        System.out.print(f.getdir());
         /*f.tf-idf();
         f.cosine();
         f.*/
     }
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        Indexar("C:\\Users\\Usuario\\Documents\\cita");
+        Indexar("C:/Users/maria/Desktop");
     }
 }

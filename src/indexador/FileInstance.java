@@ -31,6 +31,12 @@ class FileInstance {
 
     Long getTime(String direction) {
         File file = new File(direction);
-	return file.lastModified();
+	return file.lastModified();}
+    
+    String getdir(){
+        return folderDir;
     }
+    //Indexar(){
+    
+    //}
 }

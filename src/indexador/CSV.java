@@ -71,11 +71,11 @@ public class CSV extends BaseFileType{
 
 
 
-public static void main(String[] args) {
+/*public static void main(String[] args) {
 // csv file to read
 		String csvFile = "C:/Users/maria/Desktop/FL_insurance_sample.csv";
 		//CSVReader.read(csvFile);
 	}
-
+*/
 }   
 
