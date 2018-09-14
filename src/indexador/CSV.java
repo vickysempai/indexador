@@ -12,8 +12,9 @@ public class CSV extends BaseFileType{
 
     public CSV(File file) throws FileNotFoundException{
     this.name =file.getName();
-    this.url=file.getAbsolutePath();
+    this.url = file.getAbsolutePath();
     this.words = parserWords(file);
+    this.vector = new ArrayList<>();
     }    
     
     
@@ -46,23 +47,23 @@ public class CSV extends BaseFileType{
 }
 
     @Override
-    Float getFloat() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void insertDimension(Double dimension) {
+        this.vector.add(dimension);
     }
 
     @Override
-    void setFloat(Float vector) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    List<Double> getVector() {
+        return this.vector;
     }
 
     @Override
     String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.name;
     }
 
     @Override
     List<String> getwords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.words;
     }
 
 }

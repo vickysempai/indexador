@@ -11,6 +11,6 @@ import java.util.List;
  *
  * @author Usuario
  */
-public interface IIndexar {
-    double IIndexar(List<String> doc, List<List<String>> docs, String term);
+public interface IIndex {
+    void IIndex(List<String> doc, List<List<String>> docs, String query);
 }

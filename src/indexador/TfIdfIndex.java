@@ -7,7 +7,7 @@ package indexador;
 
 import java.util.List;
         
-public class TfIdfIndexador implements IIndexar{
+public class TfIdfIndex{
     
     public double tf(List<String> doc, String term) {
 
@@ -48,8 +48,7 @@ public class TfIdfIndexador implements IIndexar{
         return Math.log(docs.size() / n);
 
     }
-    @Override
-    public double IIndexar(List<String> doc, List<List<String>> docs, String term) {
+    public double Index(List<String> doc, List<List<String>> docs, String term) {
         return tf(doc, term) * idf(docs, term);
     }
 

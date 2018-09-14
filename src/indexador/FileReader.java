@@ -16,7 +16,7 @@ import org.apache.commons.io.FilenameUtils;
  *
  * @author Usuario
  */
-public class FileRead {
+public class FileReader {
     /*private static final Map<String, Runnable> myMap = createMap();
     private static Map<String, Runnable> createMap()
     {
@@ -49,7 +49,7 @@ public class FileRead {
         System.out.println("El fichero " + root + "no existe");
     else{
 
-    String[] extensions = { "xml", "html", "txt", "json" , "csv"};
+    String[] extensions = { "txt", "csv"};
     boolean recursive = true;
 
     Collection files = FileUtils.listFiles(root, extensions, recursive);

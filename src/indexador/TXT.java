@@ -23,41 +23,43 @@ public class TXT extends BaseFileType{
     this.name =file.getName();
     this.url=file.getAbsolutePath();
     this.words = parserWords(file);
+    this.vector = new ArrayList<>();
     }
     
     @Override
     List<String> parserWords(File file) throws FileNotFoundException{
-    List<String> words = new ArrayList<String>();
-    String cadena;
-    BufferedReader bf = new BufferedReader(new FileReader(file.getAbsolutePath()));
         
-    try {
-            while((cadena = bf.readLine())!=null) {
-                StringTokenizer st = new StringTokenizer (cadena);
-                
-                // bucle por todas las palabras
-                while (st.hasMoreTokens())
-                {
-                    String s2 = st.nextToken();
-                    words.add(s2);
-                    System.out.println ("    Palabra "  + " es: " + s2);
-                }
-            }   } 
-        catch (IOException ex) {
-            Logger.getLogger(TXT.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    return words;
+        List<String> words = new ArrayList<>();
+        String cadena;
+        BufferedReader bf = new BufferedReader(new FileReader(file.getAbsolutePath()));
+
+        try {
+                while((cadena = bf.readLine())!=null) {
+                    StringTokenizer st = new StringTokenizer (cadena);
+
+                    // bucle por todas las palabras
+                    while (st.hasMoreTokens())
+                    {
+                        String s2 = st.nextToken();
+                        words.add(s2);
+                        System.out.println ("    Palabra "  + " es: " + s2);
+                    }
+                }   } 
+            catch (IOException ex) {
+                Logger.getLogger(TXT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        return words;
     }
     
     
     @Override
-    Float getFloat() {
-        return this.vector;
+    void insertDimension(Double dimension) {
+        this.vector.add(dimension);
     }
 
     @Override
-    void setFloat(Float vector) {
-        this.vector=vector;
+    List<Double> getVector() {
+        return this.vector;
     }
 
     @Override

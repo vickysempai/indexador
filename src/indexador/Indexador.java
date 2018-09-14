@@ -22,7 +22,6 @@ public class Indexador {
         
         //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
-        f = FileInstance.getFileInstance("C:\\Users\\Usuario\\Documents");
         System.out.print(f.getdir());
         /*f.tf-idf();
         f.cosine();
@@ -30,6 +29,7 @@ public class Indexador {
     }
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        Indexar("C:/Users/maria/Desktop");
+        //Indexar("C:/Users/maria/Desktop");
+        Indexar("C:\\Users\\Usuario\\Documents");
     }
 }
