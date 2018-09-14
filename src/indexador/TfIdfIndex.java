@@ -7,35 +7,72 @@ package indexador;
 
 import java.util.List;
         
-public class TfIdfIndex{
+public class TfIdfIndex
+{
+
+    // Calculates the tf of term termToCheck
+
+    // totalterms : Array of all the words under processing document
+
+    // termToCheck : term of which tf is to be calculated.
+
+    // returns tf(term frequency) of term termToCheck
+
     
-    public double tf(List<String> doc, String term) {
 
-        double result = 0;
+    public double tfCalculator(List<String> totalterms, String termToCheck) 
 
-        for (String word : doc) {
+    {
 
-            if (term.equalsIgnoreCase(word))
+        double count = 0;  //to count the overall occurrence of the term termToCheck
 
-                result++;
+        for (String s : totalterms) 
+
+        {
+
+            if (s.equalsIgnoreCase(termToCheck)) 
+
+            {
+
+                count++;
+
+            }
 
         }
 
-        return result / doc.size();
+        return count / totalterms.size();
 
-    }    
+    }
 
-    public double idf(List<List<String>> docs, String term) {
 
-        double n = 0;
 
-        for (List<String> doc : docs) {
+    // Calculates idf of term termToCheck
 
-            for (String word : doc) {
+    // allTerms : all the terms of all the documents
 
-                if (term.equalsIgnoreCase(word)) {
+    // returns idf(inverse document frequency) score
 
-                    n++;
+    
+
+    public double idfCalculator(List<List<String>> allTerms, String termToCheck) 
+
+    {
+
+        double count = 0;
+
+        for (List<String> ss : allTerms) 
+
+        {
+
+            for (String s : ss) 
+
+            {
+
+                if (s.equalsIgnoreCase(termToCheck)) 
+
+                {
+
+                    count++;
 
                     break;
 
@@ -45,11 +82,8 @@ public class TfIdfIndex{
 
         }
 
-        return Math.log(docs.size() / n);
+        return 1 + Math.log(allTerms.size() / count);
 
-    }
-    public double Index(List<String> doc, List<List<String>> docs, String term) {
-        return tf(doc, term) * idf(docs, term);
     }
 
 }

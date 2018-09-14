@@ -42,7 +42,6 @@ public class TXT extends BaseFileType{
                     {
                         String s2 = st.nextToken();
                         words.add(s2);
-                        System.out.println ("    Palabra "  + " es: " + s2);
                     }
                 }   } 
             catch (IOException ex) {

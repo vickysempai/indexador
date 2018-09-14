@@ -22,7 +22,8 @@ public class Indexador {
         
         //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
-        System.out.print(f.getdir());
+        f.tfIdfCalculator();
+        f.getCosineSimilarity("Apache");
         /*f.tf-idf();
         f.cosine();
         f.*/

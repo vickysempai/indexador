@@ -19,7 +19,6 @@ public class FileFactory {
         return this.dicc.ge
     }*/
     public static BaseFileType getFile(File file,String extension) throws FileNotFoundException{
-        System.out.println(extension);
         if("txt".equals(extension)){
             return new TXT(file);
         }

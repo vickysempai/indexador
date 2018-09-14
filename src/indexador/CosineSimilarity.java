@@ -11,7 +11,9 @@ package indexador;
  */
 public class CosineSimilarity{
     
-    public static double getDistance(double[] docVector1, double[] docVector2) {
+    public double cosineSimilarity(double[] docVector1, double[] docVector2) 
+
+  {
 
       double dotProduct = 0.0;
 
@@ -61,6 +63,6 @@ public class CosineSimilarity{
 
       return cosineSimilarity;
 
-  
-    }
+  }
+
 }

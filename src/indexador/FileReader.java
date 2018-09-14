@@ -42,7 +42,6 @@ public class FileReader {
             throw new NullPointerException("directory must not be null");
         }
         
-    System.out.print(direction);
         
     File root = new File(direction);
     if (!root.exists())
@@ -61,7 +60,6 @@ public class FileReader {
       
       BaseFileType newFile = FileFactory.getFile(file,extension);
       documents.add(newFile);
-      System.out.println("FileInstance = " + file.getAbsolutePath());
     }
     }
   }

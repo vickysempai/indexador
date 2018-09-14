@@ -34,9 +34,7 @@ public class CSV extends BaseFileType{
                 tempArr = line.split(delimiter);
             for (String tempStr : tempArr) {
                 words.add(tempStr);
-                System.out.print(tempStr + "*");
             }
-            System.out.println();
         }
             bf.close();
 

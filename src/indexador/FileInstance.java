@@ -13,13 +13,16 @@ import indexador.TfIdfIndex;
 
 class FileInstance {
     
+    private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
+    private List<BaseFileType> documents = new ArrayList<BaseFileType>();
+    private List<List<String>> docs = new ArrayList<>();
+    
     private Long time;
     private String folderDir;
-    private List<BaseFileType> documents= new ArrayList<BaseFileType>();
+    
     private static FileInstance instance;
-    private List indexedDocuments;
     private ArrayList<String> allWords;
-    private List<List<String>> docs;
+    
     
     private FileInstance(){}
     
@@ -47,12 +50,16 @@ class FileInstance {
     //Indexar(){
     
     //}
-    ArrayList getAllwords(){
+    private ArrayList getAllwords(){
         ArrayList<String> allWords = new ArrayList<>();
         for (BaseFileType file : this.documents) {
             this.docs.add(file.words);
                 for(String word: file.words)
-                    allWords.add(word);
+                    if(!allWords.contains(word))
+                	{
+                            allWords.add(word);
+                            allWords.add(word);
+                	}
             }
             return allWords;
         }
@@ -68,18 +75,68 @@ class FileInstance {
         return cont;
     }*/
     
-    public void Index(){
-        for (BaseFileType doc : documents) {
-            ArrayList<Double> tfidfvectors = new ArrayList<Double>();
+    public void tfIdfCalculator() 
+    {
+        double tf; //term frequency
+        double idf; //inverse document frequency
+        double tfidf; //term frequency inverse document frequency  
+        for (List<String> docTermsArray : docs) 
+        {
+            double[] tfidfvectors = new double[allWords.size()];
             int count = 0;
-            for (String term : allWords) {
-                TfIdfIndex x = new TfIdfIndex();
-                tfidfvectors.add(x.Index(doc.words,this.docs,term));
+            for (String terms : allWords) 
+            {
+                tf = new TfIdfIndex().tfCalculator(docTermsArray, terms);
+                idf = new TfIdfIndex().idfCalculator(docs, terms);
+                tfidf = tf * idf;
+                tfidfvectors[count] = tfidf;
                 count++;
             }
-            indexedDocuments.add(tfidfvectors);  //storing document vectors;            
+            tfidfDocsVector.add(tfidfvectors);  //storing document vectors;            
         }
     }
+    private List<String> ParseQuery(String query){
+    List<String> words = new ArrayList<>();
+     StringTokenizer st = new StringTokenizer (query);
 
+                    // bucle por todas las palabras
+                    while (st.hasMoreTokens())
+                    {
+                        String s2 = st.nextToken();
+                        words.add(s2);
+                    }
+                    return words;
+    }
     
+    private double[] tfIdfQuery(String query) 
+    {
+        List<String> search = ParseQuery(query);
+        double[] vectorQuery = new double[allWords.size()];
+        double tf; //term frequency
+        double idf; //inverse document frequency
+        double tfidf; //term frequency inverse document frequency
+            
+        int count = 0;
+        for (String terms : allWords) 
+        {
+            tf = new TfIdfIndex().tfCalculator(search, terms);
+            idf = new TfIdfIndex().idfCalculator(docs, terms);
+            tfidf = tf * idf;
+            vectorQuery[count] = tfidf;
+            count++;
+        }
+        return vectorQuery;
+    }
+    
+    public void getCosineSimilarity(String query) {
+        double[] vectorQuery=tfIdfQuery(query);
+        for (int i = 0; i < tfidfDocsVector.size(); i++) {
+            for (int j = 0; j < tfidfDocsVector.size(); j++) {
+                if (i != j) {
+                    System.out.println("between " + i + " and " + j + "  =  " + new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(j)));
+                }
+
+            }
+        }
+    }
 }
