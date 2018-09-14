@@ -19,34 +19,30 @@ public class CSV extends BaseFileType{
     
     public static final String delimiter = ",";
 
-@Override
+    @Override
     List<String> parserWords(File file) throws FileNotFoundException{
-    List<String> words = new ArrayList<String>();
-    String cadena;
-    BufferedReader bf = new BufferedReader(new FileReader(file.getAbsolutePath()));
-        
-    try {
-	//File file = new File(csvFile);
-	FileReader fr = new FileReader(file);
-	BufferedReader br = new BufferedReader(fr);
+        List<String> words = new ArrayList<String>();
+        BufferedReader bf = new BufferedReader(new FileReader(file.getAbsolutePath()));
 
-	String line = "";
+        try {
 
-	String[] tempArr;
-	while ((line = br.readLine()) != null) {
-            tempArr = line.split(delimiter);
-	for (String tempStr : tempArr) {
-            words.add(tempStr);
-            //System.out.print(tempStr + " ");
-	}
-        System.out.println();
-    }
-	br.close();
+            String line = "";
 
-	} catch (IOException ex) {
-            ex.printStackTrace();
-    }
-    return words;
+            String[] tempArr;
+            while ((line = bf.readLine()) != null) {
+                tempArr = line.split(delimiter);
+            for (String tempStr : tempArr) {
+                words.add(tempStr);
+                System.out.print(tempStr + "*");
+            }
+            System.out.println();
+        }
+            bf.close();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+        }
+        return words;
 }
 
     @Override
@@ -69,13 +65,4 @@ public class CSV extends BaseFileType{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-
-/*public static void main(String[] args) {
-// csv file to read
-		String csvFile = "C:/Users/maria/Desktop/FL_insurance_sample.csv";
-		//CSVReader.read(csvFile);
-	}
-*/
-}   
-
+}

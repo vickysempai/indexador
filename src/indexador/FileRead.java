@@ -38,10 +38,17 @@ public class FileRead {
     }
     
     public static void iterate(String direction,List documents) throws Exception {
+        if (direction == null) {
+            throw new NullPointerException("directory must not be null");
+        }
+        
     System.out.print(direction);
         
     File root = new File(direction);
-    
+    if (!root.exists())
+        System.out.println("El fichero " + root + "no existe");
+    else{
+
     String[] extensions = { "xml", "html", "txt", "json" , "csv"};
     boolean recursive = true;
 
@@ -55,6 +62,7 @@ public class FileRead {
       BaseFileType newFile = FileFactory.getFile(file,extension);
       documents.add(newFile);
       System.out.println("FileInstance = " + file.getAbsolutePath());
+    }
     }
   }
 }
