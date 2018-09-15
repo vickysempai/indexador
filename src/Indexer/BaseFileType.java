@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package indexador;
+package Indexer;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.io.File;
  * @author Usuario
  */
 
-public abstract class BaseFileType {
+public abstract class BaseFileType implements serializable{
     String name;
     List vector; //dimensiones por palabra
     String url;

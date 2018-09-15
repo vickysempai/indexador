@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package indexador;
+package Indexer;
 
 import java.io.File;
-import indexador.TXT;
+import Indexer.TXT;
 import java.io.FileNotFoundException;
 
 /**

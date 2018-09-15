@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package indexador;
+package Indexer;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import indexador.TfIdfIndex;
 
-class FileInstance {
+class FileInstance implements serializable{
     
     private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
     private List<BaseFileType> documents = new ArrayList<BaseFileType>();
@@ -24,19 +23,22 @@ class FileInstance {
     private ArrayList<String> allWords;
     
     
-    private FileInstance(){}
+    FileInstance(){}
     
-    private FileInstance(String direction) throws Exception{
+    FileInstance(String direction) throws Exception{
+        FileInstance();
     this.folderDir=direction;
     this.documents = FileReader.getFiles(direction, documents);
     this.time = getTime(direction);
     this.allWords = getAllwords();
-    
-        
     }
-    public static FileInstance getFileInstance(String direction) throws Exception{
+    private void FileInstance() throws Exception{
         if (instance==null){
-            instance=new FileInstance(direction);}
+            instance=new FileInstance();}
+    }
+    
+    
+    public static FileInstance getFileInstance(){
         return instance;
     }
 
