@@ -30,7 +30,7 @@ public class Indexador {
     }
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        //Indexar("C:/Users/maria/Desktop");
-        Indexar("C:\\Users\\Usuario\\Documents");
+        Indexar("C:/Users/maria/Desktop");
+        //Indexar("C:\\Users\\Usuario\\Documents");
     }
 }

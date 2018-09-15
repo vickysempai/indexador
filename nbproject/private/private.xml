@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/CosineSimilarity.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/IIndexar.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/TXT.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/FileInstance.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/FileRead.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/Indexador.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/BaseFileType.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/indexador/src/indexador/FileFactory.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/TXT.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/CSV.java</file>
         </group>
     </open-files>
 </project-private>
