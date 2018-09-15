@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package indexador;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 /**
  *
  * @author Usuario
@@ -24,6 +30,24 @@ public class Indexador {
         //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
         f.tfIdfCalculator();
+      try {
+         // create a new file with an ObjectOutputStream
+         FileOutputStream out = new FileOutputStream("test.txt");
+         ObjectOutputStream oout = new ObjectOutputStream(out);
+
+         // write something in the file
+         oout.writeObject(f);
+
+         // close the stream
+         oout.close();
+
+         // create an ObjectInputStream for the file we created before
+         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("test.txt"));
+         FileInstance x =(FileInstance) ois.readObject();
+         x.getDistance("Apache");
+      } catch (Exception ex) {
+         ex.printStackTrace();
+      }
         f.getDistance("Apache");
         /*f.tf-idf();
         f.cosine();

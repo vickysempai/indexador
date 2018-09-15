@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 import indexador.TfIdfIndex;
+import java.io.Serializable;
 
-class FileInstance implements IgetDistance{
+class FileInstance implements IgetDistance, Serializable{
     
     private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
     //vectors of all documents
@@ -20,7 +21,7 @@ class FileInstance implements IgetDistance{
     //Every document
     
     private List<List<String>> docs = new ArrayList<>();
-    //a
+    //all words of each file of all files
     
     private Long time;
     private String folderDir;
