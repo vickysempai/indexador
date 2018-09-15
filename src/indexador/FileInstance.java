@@ -6,12 +6,12 @@
 package indexador;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import indexador.TfIdfIndex;
 
-class FileInstance {
+class FileInstance implements Serializable{
     
     private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
     private List<BaseFileType> documents = new ArrayList<BaseFileType>();
@@ -26,7 +26,7 @@ class FileInstance {
     
     private FileInstance(){}
     
-    private FileInstance(String direction) throws Exception{
+    FileInstance(String direction) throws Exception{
     this.folderDir=direction;
     this.documents = FileReader.getFiles(direction, documents);
     this.time = getTime(direction);

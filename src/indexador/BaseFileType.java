@@ -8,13 +8,14 @@ package indexador;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.io.File;
+import java.io.Serializable;
 
 /**
  *
  * @author Usuario
  */
 
-public abstract class BaseFileType {
+public abstract class BaseFileType implements Serializable{
     String name;
     List vector; //dimensiones por palabra
     String url;
