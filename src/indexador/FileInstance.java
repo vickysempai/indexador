@@ -11,11 +11,16 @@ import java.util.List;
 import java.util.StringTokenizer;
 import indexador.TfIdfIndex;
 
-class FileInstance {
+class FileInstance implements IgetDistance{
     
     private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
+    //vectors of all documents
+    
     private List<BaseFileType> documents = new ArrayList<BaseFileType>();
+    //Every document
+    
     private List<List<String>> docs = new ArrayList<>();
+    //a
     
     private Long time;
     private String folderDir;
@@ -128,15 +133,12 @@ class FileInstance {
         return vectorQuery;
     }
     
-    public void getCosineSimilarity(String query) {
+    @Override
+    public void getDistance(String query) {
         double[] vectorQuery=tfIdfQuery(query);
         for (int i = 0; i < tfidfDocsVector.size(); i++) {
-            for (int j = 0; j < tfidfDocsVector.size(); j++) {
-                if (i != j) {
-                    System.out.println("between " + i + " and " + j + "  =  " + new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(j)));
+                    System.out.println("between " + i + " and " + "  =  " + new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(i)));
                 }
 
             }
         }
-    }
-}

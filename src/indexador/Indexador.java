@@ -11,6 +11,7 @@ package indexador;
 public class Indexador {
 
     /**
+     * @param direction
      * @throws java.lang.Exception
      */
     
@@ -23,7 +24,7 @@ public class Indexador {
         //sino esta indexado, indexa la carpeta
         FileInstance f = FileInstance.getFileInstance(direction);
         f.tfIdfCalculator();
-        f.getCosineSimilarity("Apache");
+        f.getDistance("Apache");
         /*f.tf-idf();
         f.cosine();
         f.*/
