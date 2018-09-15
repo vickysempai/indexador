@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/Indexador.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/FileReader.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/FileFactory.java</file>
             <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/TXT.java</file>
             <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/CSV.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/XML.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/HTML.java</file>
+            <file>file:/C:/Users/maria/Documents/GitHub/src/indexador/TfIdfIndex.java</file>
         </group>
     </open-files>
 </project-private>

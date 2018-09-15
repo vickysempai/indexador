@@ -48,7 +48,7 @@ public class FileReader {
         System.out.println("El fichero " + root + "no existe");
     else{
 
-    String[] extensions = { "txt", "csv"};
+    String[] extensions = { "txt", "csv", "xml", "html"};
     boolean recursive = true;
 
     Collection files = FileUtils.listFiles(root, extensions, recursive);

@@ -25,6 +25,12 @@ public class FileFactory {
         if("csv".equals(extension)){
             return new CSV(file);
         }
+        if("xml".equals(extension)){
+            return new XML(file);
+        }
+        if("html".equals(extension)){
+            return new HTML(file);
+        }
         return null;
     }
 }
