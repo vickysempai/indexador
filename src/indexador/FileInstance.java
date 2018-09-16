@@ -127,16 +127,36 @@ class FileInstance implements Serializable{
         }
         return vectorQuery;
     }
-    
-    public void getCosineSimilarity(String query) {
-        double[] vectorQuery=tfIdfQuery(query);
-        for (int i = 0; i < tfidfDocsVector.size(); i++) {
-            for (int j = 0; j < tfidfDocsVector.size(); j++) {
-                if (i != j) {
-                    System.out.println("between " + i + " and " + j + "  =  " + new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(j)));
-                }
-
+    private Integer getMinor(Double[] array){
+        int number = 0;
+        for(int i=0 ; i<5 ;i++){
+            if(array[i]==null)
+                return i;
+            if(array[number] > array[i]) {
+                number=i;
             }
+	}
+        return number;
+    }
+    
+    public String[] getCosineSimilarity(String query) {
+        double[] vectorQuery=tfIdfQuery(query);
+        Double[] cosines= new Double[5];
+        Double cosine;
+        String[] top5 = { " ", " ", " ", " ", " " };
+        
+        int minor=0;
+        
+        for (int i = 0; i < tfidfDocsVector.size(); i++) {
+                    cosine = new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(i));
+                    minor=getMinor(cosines);
+                    if(cosines[minor]==null || cosines[minor]<cosine){
+                        System.out.println("cosine = " + cosine +" posicion = "+ minor);
+                        cosines[minor]=cosine;
+                        System.out.println("file"+documents.get(i).name);
+                        top5[minor]= documents.get(i).url;
+                    }
+                }
+        return top5;
         }
     }
-}

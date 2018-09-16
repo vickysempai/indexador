@@ -17,12 +17,9 @@ import java.io.Serializable;
 
 public abstract class BaseFileType implements Serializable{
     String name;
-    List vector; //dimensiones por palabra
     String url;
     List<String> words;
     
-    abstract List<Double> getVector();
-    abstract void insertDimension(Double dimension);//insertar al vector
     abstract String getName();
     abstract List<String> parserWords(File file)throws FileNotFoundException;
     abstract List<String> getwords();

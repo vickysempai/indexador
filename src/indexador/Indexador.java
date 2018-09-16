@@ -22,11 +22,10 @@ public class Indexador {
     /**
      * @throws java.lang.Exception
      */
+    
     FileInstance file= null;
-    public void Indexar(String direction) throws Exception{
-        this.file = new FileInstance(direction);
-        file.tfIdfCalculator();
-      try {
+    public void Save(String direction){
+        try {
          // create a new file with an ObjectOutputStream
          FileOutputStream out = new FileOutputStream(direction+".txt");
          ObjectOutputStream oout = new ObjectOutputStream(out);
@@ -40,11 +39,18 @@ public class Indexador {
          FileInstance x =(FileInstance) ois.readObject();
          f.getDistance("Apache");*/
 
-      } catch (Exception ex) {
-
-         ex.printStackTrace();
-
+      } catch (IOException ex) {
       }
+    }
+    public void Indexar(String direction) throws Exception{
+        this.file = new FileInstance(direction);
+        System.out.println("Indexing...");
+        file.tfIdfCalculator();
+        System.out.println("Indexed");
+        System.out.println("Guardando en disco");
+        Save(direction);
+        System.out.println("Guardado");
+      
 
         /*f.tf-idf();
 
@@ -53,31 +59,27 @@ public class Indexador {
         f.
 
     }}*/}
-    public void Search(String query){
+    
+    public String[] Search(String query){
+        String[] files = { "", "", "", "", "" };
         if (this.file!=null){
-            this.file.getCosineSimilarity(query);}
+           return this.file.getCosineSimilarity(query);}
         else{
             System.out.println("indexe o cargue un archivo primero");}
-        /*f.tf-idf();
-        f.cosine();
-        f.*/
+        return files;
     } 
+    
     public void load(String file) throws FileNotFoundException, IOException, ClassNotFoundException{
+        System.out.println("cargando...");
+        file=file+".txt";
         File f = new File(file);
         //if(f.exists() && !f.isDirectory()) { 
         if(f.exists()){
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file+".txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             this.file =(FileInstance) ois.readObject();
         }
         else
             System.out.println("el archivo no existe");
-    } 
-    public static void main(String[] args) throws Exception {
-        Indexador x = new Indexador();
-        // TODO code application logic here
-        //Indexar("C:/Users/maria/Desktop");
-        x.Indexar("C:\\Users\\Usuario\\Documents\\pruebitas");
-        x.Search("mama");
-        x.load("C:\\Users\\Usuario\\Documents\\pruebitas");
+        System.out.println("cargado");
     }
 }

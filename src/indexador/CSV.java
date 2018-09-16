@@ -14,7 +14,6 @@ public class CSV extends BaseFileType{
     this.name =file.getName();
     this.url = file.getAbsolutePath();
     this.words = parserWords(file);
-    this.vector = new ArrayList<>();
     }    
     
     
@@ -43,17 +42,6 @@ public class CSV extends BaseFileType{
         }
         return words;
 }
-
-    @Override
-    void insertDimension(Double dimension) {
-        this.vector.add(dimension);
-    }
-
-    @Override
-    List<Double> getVector() {
-        return this.vector;
-    }
-
     @Override
     String getName() {
         return this.name;
