@@ -17,7 +17,6 @@ class FileInstance implements Serializable{
     private List<BaseFileType> documents = new ArrayList<BaseFileType>();
     private List<List<String>> docs = new ArrayList<>();
     
-    private Long time;
     private String folderDir;
     
     private static FileInstance instance;
@@ -29,7 +28,6 @@ class FileInstance implements Serializable{
     FileInstance(String direction) throws Exception{
     this.folderDir=direction;
     this.documents = FileReader.getFiles(direction, documents);
-    this.time = getTime(direction);
     this.allWords = getAllwords();
     
         
@@ -143,20 +141,18 @@ class FileInstance implements Serializable{
         double[] vectorQuery=tfIdfQuery(query);
         Double[] cosines= new Double[5];
         Double cosine;
-        String[] top5 = { " ", " ", " ", " ", " " };
+        String[] top5 = { "", "", "", "", "" };
         
         int minor=0;
         
         for (int i = 0; i < tfidfDocsVector.size(); i++) {
-                    cosine = new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(i));
-                    minor=getMinor(cosines);
-                    if(cosines[minor]==null || cosines[minor]<cosine){
-                        System.out.println("cosine = " + cosine +" posicion = "+ minor);
-                        cosines[minor]=cosine;
-                        System.out.println("file"+documents.get(i).name);
-                        top5[minor]= documents.get(i).url;
-                    }
+            cosine = new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(i));
+            minor=getMinor(cosines);
+            if((cosines[minor]==null || cosines[minor]<cosine)&&cosine!=0.0){
+                cosines[minor]=cosine;
+                top5[minor]= documents.get(i).url;
                 }
+            }
         return top5;
         }
     }

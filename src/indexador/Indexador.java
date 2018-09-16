@@ -43,15 +43,19 @@ public class Indexador {
       }
     }
     public void Indexar(String direction) throws Exception{
+        System.out.println("indexando...");
+        String tmpfile = direction;
+        tmpfile =tmpfile +".txt";
+        File f = new File(tmpfile );
+        //if(f.exists() && !f.isDirectory()) { 
+        if(f.exists()){
         this.file = new FileInstance(direction);
-        System.out.println("Indexing...");
         file.tfIdfCalculator();
-        System.out.println("Indexed");
-        System.out.println("Guardando en disco");
         Save(direction);
-        System.out.println("Guardado");
-      
-
+        System.out.println("indexado");
+        }
+        else
+            System.out.println("el archivo no existe");
         /*f.tf-idf();
 
         f.cosine();
@@ -66,7 +70,7 @@ public class Indexador {
            return this.file.getCosineSimilarity(query);}
         else{
             System.out.println("indexe o cargue un archivo primero");}
-        return files;
+        return null;
     } 
     
     public void load(String file) throws FileNotFoundException, IOException, ClassNotFoundException{
@@ -77,9 +81,10 @@ public class Indexador {
         if(f.exists()){
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             this.file =(FileInstance) ois.readObject();
+            System.out.println("cargado");
         }
         else
             System.out.println("el archivo no existe");
-        System.out.println("cargado");
+            
     }
 }
