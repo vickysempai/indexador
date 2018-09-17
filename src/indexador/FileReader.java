@@ -17,21 +17,6 @@ import org.apache.commons.io.FilenameUtils;
  * @author Usuario
  */
 public class FileReader {
-    /*private static final Map<String, Runnable> myMap = createMap();
-    private static Map<String, Runnable> createMap()
-    {
-        Map<String,FileInstance> myMap = new HashMap<String,Runnable>();
-        myMap.put("txt",(FileInstance file) -> TXT.class.);
-        return myMap;
-    }
-    
-    
-        
-        Iterator<String> it = myMap.keySet().iterator();
-        while(it.hasNext()){
-            String key = it.next();
-            System.out.println("Clave: " + key + " -> Valor: " + myMap.get(key));
-    */
     public static List<BaseFileType> getFiles(String direction,List documents) throws Exception{
     iterate(direction,documents);
     return documents;

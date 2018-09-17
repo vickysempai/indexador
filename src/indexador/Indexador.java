@@ -23,7 +23,7 @@ public class Indexador {
      * @throws java.lang.Exception
      */
     
-    FileInstance file= null;
+    private FileInstance file= null;
     public void Save(String direction){
         try {
          // create a new file with an ObjectOutputStream
@@ -45,15 +45,14 @@ public class Indexador {
     public void Indexar(String direction) throws Exception{
         System.out.println("indexando...");
         String tmpfile = direction;
-        tmpfile =tmpfile +".txt";
-        File f = new File(tmpfile );
+        File f = new File(tmpfile);
         //if(f.exists() && !f.isDirectory()) { 
-        if(f.exists()){
-        this.file = new FileInstance(direction);
-        file.tfIdfCalculator();
-        Save(direction);
-        System.out.println("indexado");
-        }
+        if(f.isDirectory()){
+            this.file = new FileInstance(direction);
+            file.tfIdfCalculator();
+            Save(direction);
+            System.out.println("indexado");
+            }
         else
             System.out.println("el archivo no existe");
         /*f.tf-idf();
