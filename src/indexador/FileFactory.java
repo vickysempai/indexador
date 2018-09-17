@@ -31,6 +31,9 @@ public class FileFactory {
         if("html".equals(extension)){
             return new HTML(file);
         }
+        if("json".equals(extension)){
+            return new JSON(file);
+        }
         return null;
     }
 }

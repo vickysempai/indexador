@@ -22,6 +22,7 @@ public class JSON extends BaseFileType{
     this.name =file.getName();
     this.url=file.getAbsolutePath();
     this.words = parserWords(file);
+    
     }
     
     private static List<String> getW(String cadena) {
@@ -78,17 +79,16 @@ public class JSON extends BaseFileType{
         catch (Exception e ){
 
         }
-        
         return words;
     }
 
     @Override
     String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.name;
     }
 
     @Override
     List<String> getwords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.words;
     }
 }
