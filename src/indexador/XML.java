@@ -63,7 +63,7 @@ public class XML extends BaseFileType{
             else if (node.getNodeType() == Node.TEXT_NODE){
                 
                 String nodeText = node.getTextContent();
-                nodeText = nodeText.replaceAll("[-+.^:,;(){}\\[\\]/\\\\]", " ");
+                nodeText = nodeText.replaceAll("[-+.^:,;(){}\\[\\]/\\\\¿?¡!=@]", " ");
                 allWords.addAll(getW(nodeText));
                 
             }
