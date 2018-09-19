@@ -22,7 +22,6 @@ public class JSON extends BaseFileType{
     this.name =file.getName();
     this.url=file.getAbsolutePath();
     this.words = parserWords(file);
-    
     }
     
     private static List<String> getW(String cadena) {

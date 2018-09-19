@@ -23,7 +23,10 @@ public class TXT extends BaseFileType{
     this.name =file.getName();
     this.url=file.getAbsolutePath();
     this.words = parserWords(file);
-    }
+    /*
+        for(String x: words){
+    System.out.println(x);}
+    */}
     
     @Override
     List<String> parserWords(File file) throws FileNotFoundException{
@@ -34,12 +37,14 @@ public class TXT extends BaseFileType{
 
         try {
                 while((string = bf.readLine())!=null) {
+                    string = string.replaceAll("[-+.^:,;(){}\\[\\]/\\\\¿?¡!=@]", " ");
                     StringTokenizer st = new StringTokenizer (string);
 
                     // bucle por todas las palabras
                     while (st.hasMoreTokens())
                     {
                         String s2 = st.nextToken();
+                        
                         words.add(s2);
                     }
                 }   } 

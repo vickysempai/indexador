@@ -37,6 +37,7 @@ public class HTML extends BaseFileType{
             Document document = Jsoup.parse(file, null);
 
             String text = document.text();
+            text = text.replaceAll("[-+.^:,;(){}\\[\\]/\\\\¿?¡!=@]", " ");
             words.addAll(getW(text));
         }
         catch (Exception e ){
