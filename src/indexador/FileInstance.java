@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-class FileInstance implements Serializable{
+class FileInstance implements Serializable, tfIdfCalculator,getCosineSimilarity{
     
     private List<double[]> tfidfDocsVector = new ArrayList<double[]>();
     private List<BaseFileType> documents = new ArrayList<BaseFileType>();
@@ -45,9 +45,6 @@ class FileInstance implements Serializable{
     String getdir(){
         return folderDir;
     }
-    //Indexar(){
-    
-    //}
     private ArrayList getAllwords(){
         ArrayList<String> allWords = new ArrayList<>();
         for (BaseFileType file : this.documents) {
@@ -61,18 +58,7 @@ class FileInstance implements Serializable{
             }
             return allWords;
         }
-    /*
-    Double getSizeAllDocuments(){
-        Integer cont=0;
-        for (BaseFileType file : documents) {
-            for(String word: file.words)
-                cont++;
-            System.out.print(cont);
-        }
-        
-        return cont;
-    }*/
-    
+    @Override
     public void tfIdfCalculator() 
     {
         double tf; //term frequency
@@ -137,6 +123,7 @@ class FileInstance implements Serializable{
         return number;
     }
     
+    @Override
     public String[] getCosineSimilarity(String query) {
         double[] vectorQuery=tfIdfQuery(query);
         Double[] cosines= new Double[5];
@@ -148,11 +135,12 @@ class FileInstance implements Serializable{
         for (int i = 0; i < tfidfDocsVector.size(); i++) {
             cosine = new CosineSimilarity().cosineSimilarity(vectorQuery, tfidfDocsVector.get(i));
             minor=getMinor(cosines);
+            //System.out.println(cosine);
             if((cosines[minor]==null || cosines[minor]<cosine)&&cosine!=0.0){
                 cosines[minor]=cosine;
                 top5[minor]= documents.get(i).url;
                 }
             }
         return top5;
-        }
     }
+}

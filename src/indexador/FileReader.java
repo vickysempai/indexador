@@ -26,26 +26,26 @@ public class FileReader {
         if (direction == null) {
             throw new NullPointerException("directory must not be null");
         }
-        
-        
-    File root = new File(direction);
-    if (!root.exists())
-        System.out.println("El fichero " + root + "no existe");
-    else{
 
-    String[] extensions = { "txt", "csv", "xml", "html","json"};
-    boolean recursive = true;
 
-    Collection files = FileUtils.listFiles(root, extensions, recursive);
+        File root = new File(direction);
+        if (!root.exists())
+            System.out.println("El fichero " + root + "no existe");
+        else{
 
-    for (Iterator iterator = files.iterator(); iterator.hasNext();) {
-      File file = (File) iterator.next();
-      
-      String extension = FilenameUtils.getExtension(file.getAbsolutePath());
-      
-      BaseFileType newFile = FileFactory.getFile(file,extension);
-      documents.add(newFile);
-    }
-    }
-  }
+        String[] extensions = { "txt", "csv", "xml", "html","json"};
+        boolean recursive = true;
+
+        Collection files = FileUtils.listFiles(root, extensions, recursive);
+
+        for (Iterator iterator = files.iterator(); iterator.hasNext();) {
+          File file = (File) iterator.next();
+
+          String extension = FilenameUtils.getExtension(file.getAbsolutePath());
+
+          BaseFileType newFile = FileFactory.getFile(file,extension);
+          documents.add(newFile);
+        }
+        }
+      }
 }

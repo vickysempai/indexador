@@ -55,17 +55,12 @@ public class Indexador {
             }
         else
             System.out.println("el archivo no existe");
-        /*f.tf-idf();
 
-        f.cosine();
-
-        f.
-
-    }}*/}
+    }
     
     public String[] Search(String query){
         String[] files = { "", "", "", "", "" };
-        if (this.file!=null){
+        if (this.file!=null){System.out.println("buscando... ");
            return this.file.getCosineSimilarity(query);}
         else{
             System.out.println("indexe o cargue un archivo primero");}
@@ -76,7 +71,6 @@ public class Indexador {
         System.out.println("cargando...");
         file=file+".txt";
         File f = new File(file);
-        //if(f.exists() && !f.isDirectory()) { 
         if(f.exists()){
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             this.file =(FileInstance) ois.readObject();
